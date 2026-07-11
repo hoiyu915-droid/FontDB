@@ -4,6 +4,7 @@ sources:
   - id: source_han_sans
     family: Source Han Sans
     localized_family: 思源黑體
+    profile_families: [Source Han Sans TC]
     status: verified
     project_url: https://github.com/adobe-fonts/source-han-sans
     license_url: https://github.com/adobe-fonts/source-han-sans/blob/master/LICENSE.txt
@@ -21,6 +22,7 @@ sources:
   - id: source_han_serif
     family: Source Han Serif
     localized_family: 思源宋體
+    profile_families: [Source Han Serif TC]
     status: verified
     project_url: https://github.com/adobe-fonts/source-han-serif
     license_url: https://github.com/adobe-fonts/source-han-serif/blob/master/LICENSE.txt
@@ -37,6 +39,7 @@ sources:
   - id: iansui
     family: 芫荽
     english_family: Iansui
+    profile_families: [芫荽 Iansui]
     family_aliases: [芫荽, Iansui]
     verified_file_sha256:
       Iansui-Regular.ttf: 7f1aa62e9dcbf40d0ce41a5d3f1e5ea602e66c295778ac6fefb6b84d8ed08bd5
@@ -61,6 +64,7 @@ sources:
   - id: jf_open_huninn
     family: jf open 粉圓
     english_family: jf open-huninn
+    profile_families: [jf open 粉圓]
     family_aliases: [jf open 粉圓, jf-openhuninn]
     verified_file_sha256:
       jf-openhuninn-2.1.ttf: 9d5bf4932d31fe94c18cd8cfddc98bc1b14ce10f4e354c682179db290a99c825
