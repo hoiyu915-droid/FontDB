@@ -1,0 +1,88 @@
+version: 0.1.0
+verified_at: 2026-07-11
+sources:
+  - id: source_han_sans
+    family: Source Han Sans
+    localized_family: 思源黑體
+    status: verified
+    project_url: https://github.com/adobe-fonts/source-han-sans
+    license_url: https://github.com/adobe-fonts/source-han-sans/blob/master/LICENSE.txt
+    license: OFL-1.1
+    reserved_font_name: Source
+    verified_release: 2.005R
+    release_date: 2025-06-18
+    formats: [OTF, OTC, subset-OTF, variable-OTF, variable-TTF, WOFF2]
+    regional_variants: [CN, TW, HK, JP, KR]
+    notes:
+      - Use the TW regional build for Taiwan Traditional Chinese.
+      - License permits use, embedding, modification and redistribution under OFL conditions.
+      - Modified fonts cannot retain the reserved name Source without permission.
+
+  - id: source_han_serif
+    family: Source Han Serif
+    localized_family: 思源宋體
+    status: verified
+    project_url: https://github.com/adobe-fonts/source-han-serif
+    license_url: https://github.com/adobe-fonts/source-han-serif/blob/master/LICENSE.txt
+    license: OFL-1.1
+    reserved_font_name: Source
+    verified_release: "2.003"
+    release_date: 2024-07-30
+    formats: [OTF, OTC, subset-OTF, variable-OTF, variable-TTF]
+    regional_variants: [CN, TW, HK, JP, KR]
+    notes:
+      - Use the TW regional build for Taiwan Traditional Chinese.
+      - Suitable as the canonical Ming/Song editorial base.
+
+  - id: iansui
+    family: 芫荽
+    english_family: Iansui
+    status: verified_with_coverage_limit
+    project_url: https://github.com/ButTaiwan/iansui
+    license_url: https://github.com/ButTaiwan/iansui/blob/main/OFL.txt
+    license: OFL-1.1
+    verified_release: "1.020"
+    release_date: 2025-05-30
+    coverage:
+      big5_approx_glyphs: 8170
+      full_big5: false
+      jf_charset_0_9_basic: true
+      jf_charset_0_9_extended: true
+      bopomofo: true
+      taigi_hakka_recommended_characters: true
+    notes:
+      - Derived from Klee One and adjusted toward Taiwan Ministry of Education forms.
+      - The project explicitly warns that it does not cover all 13,560 Big5 characters.
+      - Use a verified fallback and run missing-glyph checks before production.
+
+  - id: jf_open_huninn
+    family: jf open 粉圓
+    english_family: jf open-huninn
+    status: verified
+    project_url: https://github.com/justfont/open-huninn-font
+    license_url: https://github.com/justfont/open-huninn-font/blob/master/LICENSE
+    license: OFL-1.1
+    verified_release: "2.1"
+    release_date: 2024-09-19
+    coverage:
+      traditional_chinese_taiwan: true
+      jf7000: true
+      bopomofo: true
+      taigi_hakka: true
+    notes:
+      - Taiwan-oriented punctuation and glyph adjustments.
+      - Suitable for rounded educational display use.
+      - Formal publications should still proofread glyph correctness as requested by the project.
+
+renderer_recipes:
+  - id: industrial_condensed_v0
+    status: provisional
+    base_source: source_han_sans
+    regional_variant: TW
+    weight: Heavy
+    scale_x: 0.85
+    allowed_scale_x: [0.82, 0.88]
+    tracking_em: -0.02
+    warning:
+      - This is controlled horizontal compression, not a native condensed font.
+      - Must pass legibility and rasterization tests before the profile can become tested.
