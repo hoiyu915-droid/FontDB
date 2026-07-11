@@ -22,6 +22,8 @@ FontDB does **not** treat every visual treatment as a standalone font. It separa
 - `docs/RESOLVER.md` — selection and fallback logic
 - `docs/SOURCE_POLICY.md` — evidence, licensing, and reference-image policy
 - `references/README.md` — how to register visual references without pretending they are fonts
+- `tools/glyph_preflight.py` — executable ordered-stack Unicode coverage resolver
+- `tests/` — deterministic render and glyph stress-test records
 
 ## Core rule
 
