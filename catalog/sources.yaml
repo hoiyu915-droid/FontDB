@@ -81,7 +81,7 @@ renderer_recipes:
     regional_variant: TW
     weight: Heavy
     scale_x: 0.85
-    allowed_scale_x: [0.82, 0.88]
+    allowed_scale_x: [0.85, 0.88]
     tracking_em: -0.02
     warning:
       - This is controlled horizontal compression, not a native condensed font.
