@@ -56,9 +56,9 @@ coverage_summary:
   total_samples: 100
   production_font_identity_verified: 0
   profile_fit:
-    good: 64
-    acceptable: 26
-    poor: 10
+    good: 67
+    acceptable: 25
+    poor: 8
   uncovered_semantic_gaps:
     - outline_editorial
     - architectural_display
