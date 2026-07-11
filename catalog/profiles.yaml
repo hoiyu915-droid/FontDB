@@ -2,25 +2,27 @@ version: 0.1.0
 default_profile: knowledge_sans
 profiles:
   - id: knowledge_sans
-    status: draft
+    status: verified
     archetype: sans_grotesk
     voices: [neutral, authoritative, technical]
     roles: [body, caption, title, section_title, label]
     locales: [zh-Hant, zh-Hans, ja, en]
     treatment: {weight: 600, tracking_em: 0.01, line_height: 1.2, effects: []}
     constraints: {body_text_allowed: true, max_title_chars: 24, min_contrast_ratio: 4.5}
-    font_stack: []
+    font_stack:
+      - {family: Source Han Sans TC, confidence: verified, source_url: "https://github.com/adobe-fonts/source-han-sans", license: OFL-1.1, coverage: [zh-Hant-TW, zh-Hant-HK, zh-Hans, ja, ko, en]}
     prompt_constraints: [clean CJK sans-serif, open counters, no decorative distortion]
 
   - id: editorial_ming
-    status: draft
+    status: verified
     archetype: serif_ming
     voices: [editorial, authoritative, cultural]
     roles: [title, cover_title, section_title, quote]
     locales: [zh-Hant, zh-Hans, ja]
     treatment: {weight: 500, tracking_em: 0.04, line_height: 1.15, effects: []}
     constraints: {body_text_allowed: false, max_title_chars: 14, min_contrast_ratio: 4.5}
-    font_stack: []
+    font_stack:
+      - {family: Source Han Serif TC, confidence: verified, source_url: "https://github.com/adobe-fonts/source-han-serif", license: OFL-1.1, coverage: [zh-Hant-TW, zh-Hant-HK, zh-Hans, ja, ko, en]}
     prompt_constraints: [refined Ming-style CJK serif, visible thick-thin contrast, restrained editorial rhythm]
 
   - id: premium_display_serif
@@ -46,14 +48,15 @@ profiles:
     prompt_constraints: [friendly humanist CJK sans, clear skeletons, moderate rounded terminals]
 
   - id: rounded_education
-    status: draft
+    status: verified
     archetype: rounded
     voices: [friendly, playful]
     roles: [title, label, cover_title]
     locales: [zh-Hant, zh-Hans, ja]
     treatment: {weight: 700, tracking_em: 0.0, line_height: 1.15, effects: []}
     constraints: {body_text_allowed: false, max_title_chars: 14, min_contrast_ratio: 4.5}
-    font_stack: []
+    font_stack:
+      - {family: jf open 粉圓, confidence: verified, source_url: "https://github.com/justfont/open-huninn-font", license: OFL-1.1, coverage: [zh-Hant-TW, bopomofo, taigi, hakka, en]}
     prompt_constraints: [rounded bold CJK display, child-friendly but not infantile, preserve counters]
 
   - id: industrial_condensed
@@ -62,10 +65,11 @@ profiles:
     voices: [industrial, authoritative, urgent]
     roles: [cover_title, warning, label]
     locales: [zh-Hant, zh-Hans, ja]
-    treatment: {weight: 800, tracking_em: -0.02, line_height: 1.0, effects: []}
+    treatment: {weight: 800, tracking_em: -0.02, line_height: 1.0, scale_x: 0.85, effects: []}
     constraints: {body_text_allowed: false, max_title_chars: 12, min_contrast_ratio: 4.5}
-    font_stack: []
-    prompt_constraints: [heavy condensed CJK sans, squared terminals, no distressed texture by default]
+    font_stack:
+      - {family: Source Han Sans TC, confidence: verified, source_url: "https://github.com/adobe-fonts/source-han-sans", license: OFL-1.1, coverage: [zh-Hant-TW, zh-Hant-HK, zh-Hans, ja, ko, en]}
+    prompt_constraints: [heavy CJK sans with controlled horizontal compression near 85 percent, squared terminals, no claim of a native condensed family, no distressed texture by default]
 
   - id: urgent_outline
     status: draft
@@ -101,15 +105,16 @@ profiles:
     prompt_constraints: [true monospaced Latin and numerals, tabular figures]
 
   - id: handwritten_note
-    status: draft
+    status: verified
     archetype: handwritten
     voices: [personal, friendly]
     roles: [quote, label, title]
     locales: [zh-Hant, zh-Hans, ja]
     treatment: {weight: 500, tracking_em: 0.02, line_height: 1.25, effects: []}
     constraints: {body_text_allowed: false, max_title_chars: 16, min_contrast_ratio: 4.5}
-    font_stack: []
-    prompt_constraints: [natural everyday handwriting, consistent baseline, fully legible CJK forms]
+    font_stack:
+      - {family: 芫荽 Iansui, confidence: verified, source_url: "https://github.com/ButTaiwan/iansui", license: OFL-1.1, coverage: [zh-Hant-TW-partial, jf-charset-0.9, bopomofo, taigi, hakka, en]}
+    prompt_constraints: [natural everyday handwriting, consistent baseline, fully legible CJK forms, flag missing glyphs because Iansui does not cover full Big5]
 
   - id: brush_cultural
     status: draft
