@@ -24,6 +24,7 @@ FontDB does **not** treat every visual treatment as a standalone font. It separa
 - `references/README.md` — how to register visual references without pretending they are fonts
 - `tools/glyph_preflight.py` — executable ordered-stack Unicode coverage resolver
 - `tools/resolve_typography.py` — semantic profile selection plus glyph-safe render-run compiler
+- `tools/font_integrity.py` — name-table, SHA-256, and OS/2 weight verification
 - `tests/` — deterministic render and glyph stress-test records
 
 ## Core rule
