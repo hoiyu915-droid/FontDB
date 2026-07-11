@@ -37,6 +37,9 @@ sources:
   - id: iansui
     family: 芫荽
     english_family: Iansui
+    family_aliases: [芫荽, Iansui]
+    verified_file_sha256:
+      Iansui-Regular.ttf: 7f1aa62e9dcbf40d0ce41a5d3f1e5ea602e66c295778ac6fefb6b84d8ed08bd5
     status: verified_with_coverage_limit
     project_url: https://github.com/ButTaiwan/iansui
     license_url: https://github.com/ButTaiwan/iansui/blob/main/OFL.txt
@@ -58,6 +61,9 @@ sources:
   - id: jf_open_huninn
     family: jf open 粉圓
     english_family: jf open-huninn
+    family_aliases: [jf open 粉圓, jf-openhuninn]
+    verified_file_sha256:
+      jf-openhuninn-2.1.ttf: 9d5bf4932d31fe94c18cd8cfddc98bc1b14ce10f4e354c682179db290a99c825
     status: verified
     project_url: https://github.com/justfont/open-huninn-font
     license_url: https://github.com/justfont/open-huninn-font/blob/master/LICENSE
