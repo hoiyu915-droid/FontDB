@@ -135,7 +135,15 @@ def main():
             score += 10
             score -= max(0, len(coverage["used_fonts"]) - 1)
 
-        ranked.append({"profile_id": profile["id"], "score": score, "status": profile.get("status"), "coverage": coverage})
+        ranked.append({
+            "profile_id": profile["id"],
+            "score": score,
+            "status": profile.get("status"),
+            "archetype": profile.get("archetype"),
+            "treatment": profile.get("treatment", {}),
+            "prompt_constraints": profile.get("prompt_constraints", []),
+            "coverage": coverage,
+        })
 
     ranked.sort(key=lambda x: (-x["score"], x["profile_id"]))
     result = {
