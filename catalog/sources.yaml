@@ -84,6 +84,22 @@ sources:
       - Suitable for rounded educational display use.
       - Formal publications should still proofread glyph correctness as requested by the project.
 
+
+  - id: noto_sans_tc_google_fonts
+    family: Noto Sans TC
+    profile_families: [NotoSansTC]
+    family_aliases: [Noto Sans TC, NotoSansTC]
+    status: verified_runtime_fallback
+    project_url: https://github.com/google/fonts/tree/main/ofl/notosanstc
+    license_url: https://github.com/google/fonts/blob/main/ofl/notosanstc/OFL.txt
+    license: OFL-1.1
+    verified_file_sha256:
+      NotoSansTC.ttf: 864727d210d54f2537bbe23b3a839436c3992af72de9322af5270897246bd44f
+    coverage: [zh-Hant-TW, latin, greek-partial]
+    notes:
+      - Registered as a runtime fallback, not as a replacement identity for Source Han Sans TC.
+      - Glyph preflight remains mandatory; the tested file lacks U+2082 and U+2A736.
+
 renderer_recipes:
   - id: industrial_condensed_v0
     status: provisional
