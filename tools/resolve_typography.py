@@ -5,6 +5,7 @@ from pathlib import Path
 import yaml
 
 from glyph_preflight import resolve as resolve_glyphs
+from font_integrity import verify as verify_font
 
 
 def parse_binding(value: str):
@@ -49,6 +50,7 @@ def rank_profile(profile: dict, args) -> tuple[int, list[str]]:
 def main():
     p = argparse.ArgumentParser(description="Resolve a FontDB semantic profile and deterministic font runs.")
     p.add_argument("--catalog", required=True, type=Path)
+    p.add_argument("--sources", type=Path)
     p.add_argument("--text", required=True)
     p.add_argument("--locale", default="zh-Hant")
     p.add_argument("--role", required=True)
@@ -60,8 +62,18 @@ def main():
     args = p.parse_args()
 
     catalog = yaml.safe_load(args.catalog.read_text(encoding="utf-8"))
+    sources = yaml.safe_load(args.sources.read_text(encoding="utf-8")) if args.sources else {"sources": []}
     bindings = dict(args.bind)
     ranked, rejected = [], []
+
+    source_index = {}
+    for source in sources.get("sources", []):
+        keys = set(source.get("profile_families", []))
+        keys.add(source.get("family", ""))
+        keys.add(source.get("english_family", ""))
+        for key in keys:
+            if key:
+                source_index[key] = source
 
     for profile in catalog.get("profiles", []):
         score, reasons = rank_profile(profile, args)
@@ -76,11 +88,44 @@ def main():
             for entry in profile.get("font_stack", []):
                 family = entry["family"]
                 if family in bindings:
-                    ordered.append((family, bindings[family]))
+                    path = bindings[family]
+                    source = source_index.get(family)
+                    if args.sources and not source:
+                        rejected.append({"profile_id": profile["id"], "reasons": ["source_record_missing:" + family]})
+                        missing_binding.append("__integrity_rejected__")
+                        continue
+                    if source:
+                        digests = source.get("verified_file_sha256", {})
+                        expected_sha = digests.get(path.name)
+                        aliases = source.get("family_aliases", [])
+                        check = verify_font(path, family, aliases, expected_sha, None)
+                        if not check["integrity_pass"]:
+                            rejected.append({"profile_id": profile["id"], "reasons": ["font_integrity_failed:" + family], "integrity": check})
+                            missing_binding.append("__integrity_rejected__")
+                            continue
+                    ordered.append((family, path))
                 else:
                     missing_binding.append(family)
-            ordered.extend(args.fallback)
+            fallback_failed = False
+            for family, path in args.fallback:
+                source = source_index.get(family)
+                if args.sources and not source:
+                    rejected.append({"profile_id": profile["id"], "reasons": ["fallback_source_record_missing:" + family]})
+                    fallback_failed = True
+                    break
+                if source:
+                    expected_sha = source.get("verified_file_sha256", {}).get(path.name)
+                    check = verify_font(path, family, source.get("family_aliases", []), expected_sha, None)
+                    if not check["integrity_pass"]:
+                        rejected.append({"profile_id": profile["id"], "reasons": ["fallback_integrity_failed:" + family], "integrity": check})
+                        fallback_failed = True
+                        break
+                ordered.append((family, path))
+            if fallback_failed:
+                continue
             if missing_binding or not ordered:
+                if "__integrity_rejected__" in missing_binding:
+                    continue
                 rejected.append({"profile_id": profile["id"], "reasons": ["unbound_font:" + x for x in missing_binding] or ["no_bound_font"]})
                 continue
             coverage = resolve_glyphs(args.text, ordered)
