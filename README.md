@@ -11,7 +11,7 @@ FontDB does **not** treat every visual treatment as a standalone font. It separa
 
 ## Status
 
-`v0.1-draft` — taxonomy and resolver contract are usable; concrete font families and licenses still require source-by-source verification.
+`v0.2-draft` — 21 semantic profiles cover the initial 100-sample montage with no forced poor-fit mappings; concrete font families and licenses still require source-by-source verification.
 
 ## Repository map
 
