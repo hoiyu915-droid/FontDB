@@ -16,7 +16,7 @@ items:
   - {range: "06", profile: premium_display_serif, treatment: [none], fit: good}
   - {range: "07", profile: sports_impact, treatment: [shear], fit: acceptable}
   - {range: "08-16", profile: editorial_ming, treatment: [none], fit: good}
-  - {range: "17-20", profile: urgent_outline, treatment: [outline_only], fit: poor, gap: outline_editorial}
+  - {range: "17-20", profile: outline_editorial, treatment: [outline_only], fit: good}
   - {range: "21-30", profile: handwritten_note, treatment: [natural_variation], fit: good}
   - {range: "31", profile: brush_cultural, treatment: [curved_baseline, music_marks], fit: acceptable}
   - {range: "32", profile: handwritten_note, treatment: [curved_baseline], fit: acceptable}
@@ -37,29 +37,30 @@ items:
   - {range: "64", profile: tech_interface, treatment: [glitch, fracture], fit: good}
   - {range: "65-68", profile: industrial_condensed, treatment: [stencil_or_cut, metal_texture], fit: good}
   - {range: "69-72", profile: sports_impact, treatment: [outer_stroke, shear], fit: good}
-  - {range: "73-76", profile: industrial_condensed, treatment: [engraved_or_constructed], fit: acceptable, gap: architectural_display}
+  - {range: "73-76", profile: architectural_display, treatment: [engraved_or_constructed], fit: good}
   - {range: "77-80", profile: retro_print, treatment: [ink_bleed, neon_outline], fit: good}
-  - {range: "81-84", profile: retro_print, treatment: [western_woodtype, distress], fit: acceptable, gap: western_woodtype}
+  - {range: "81-84", profile: western_woodtype, treatment: [woodblock, distress], fit: good}
   - {range: "85-86", profile: neon_sign, treatment: [tube_outline, glow], fit: good}
   - {range: "87", profile: handwritten_note, treatment: [marker_highlight], fit: good}
   - {range: "88", profile: urgent_outline, treatment: [shear, hard_shadow], fit: good}
   - {range: "89-92", profile: brush_cultural, treatment: [ink_texture], fit: good}
   - {range: "93", profile: premium_display_serif, treatment: [high_contrast], fit: good}
   - {range: "94", profile: editorial_ming, treatment: [plaque_frame], fit: acceptable}
-  - {range: "95", profile: brush_cultural, treatment: [seal_script_influence], fit: poor, gap: seal_script_display}
+  - {range: "95", profile: seal_script_display, treatment: [seal_script_influence], fit: good}
   - {range: "96", profile: brush_cultural, treatment: [woodblock_print], fit: acceptable}
-  - {range: "97-98", profile: gothic_fantasy, treatment: [medieval_frame], fit: poor, gap: cjk_fantasy_pairing}
+  - {range: "97-98", profile: cjk_fantasy_pairing, treatment: [medieval_frame], fit: good}
   - {range: "99", profile: brush_cultural, treatment: [sharp_brush, metallic], fit: acceptable}
-  - {range: "100", profile: gothic_fantasy, treatment: [ornamental_frame], fit: poor, gap: cjk_fantasy_pairing}
+  - {range: "100", profile: cjk_fantasy_pairing, treatment: [ornamental_frame], fit: good}
 
 coverage_summary:
   total_samples: 100
   production_font_identity_verified: 0
   profile_fit:
-    good: 67
-    acceptable: 25
-    poor: 8
-  uncovered_semantic_gaps:
+    good: 83
+    acceptable: 17
+    poor: 0
+  uncovered_semantic_gaps: []
+  resolved_by_profiles:
     - outline_editorial
     - architectural_display
     - western_woodtype
