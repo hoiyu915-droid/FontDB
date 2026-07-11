@@ -52,6 +52,7 @@ FontDB is designed to sit beside Seed Resolver:
 ```bash
 python tools/resolve_typography.py \
   --catalog catalog/profiles.yaml \
+  --sources catalog/sources.yaml \
   --text '親子課程：臺語𩵚也要正確顯示' \
   --locale zh-Hant --role title --voice friendly \
   --bind 'jf open 粉圓=/path/jf-openhuninn-2.1.ttf' \
