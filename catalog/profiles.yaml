@@ -1,0 +1,178 @@
+version: 0.1.0
+default_profile: knowledge_sans
+profiles:
+  - id: knowledge_sans
+    status: draft
+    archetype: sans_grotesk
+    voices: [neutral, authoritative, technical]
+    roles: [body, caption, title, section_title, label]
+    locales: [zh-Hant, zh-Hans, ja, en]
+    treatment: {weight: 600, tracking_em: 0.01, line_height: 1.2, effects: []}
+    constraints: {body_text_allowed: true, max_title_chars: 24, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [clean CJK sans-serif, open counters, no decorative distortion]
+
+  - id: editorial_ming
+    status: draft
+    archetype: serif_ming
+    voices: [editorial, authoritative, cultural]
+    roles: [title, cover_title, section_title, quote]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: 500, tracking_em: 0.04, line_height: 1.15, effects: []}
+    constraints: {body_text_allowed: false, max_title_chars: 14, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [refined Ming-style CJK serif, visible thick-thin contrast, restrained editorial rhythm]
+
+  - id: premium_display_serif
+    status: draft
+    archetype: serif_display
+    voices: [premium, editorial]
+    roles: [cover_title, title, decorative]
+    locales: [zh-Hant, zh-Hans]
+    treatment: {weight: 400, tracking_em: 0.06, line_height: 1.1, effects: []}
+    constraints: {body_text_allowed: false, max_title_chars: 10, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [high-contrast elegant CJK serif, generous spacing, no faux calligraphy]
+
+  - id: friendly_humanist
+    status: draft
+    archetype: sans_humanist
+    voices: [friendly, neutral]
+    roles: [body, title, label]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: 600, tracking_em: 0.0, line_height: 1.25, effects: []}
+    constraints: {body_text_allowed: true, max_title_chars: 18, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [friendly humanist CJK sans, clear skeletons, moderate rounded terminals]
+
+  - id: rounded_education
+    status: draft
+    archetype: rounded
+    voices: [friendly, playful]
+    roles: [title, label, cover_title]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: 700, tracking_em: 0.0, line_height: 1.15, effects: []}
+    constraints: {body_text_allowed: false, max_title_chars: 14, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [rounded bold CJK display, child-friendly but not infantile, preserve counters]
+
+  - id: industrial_condensed
+    status: draft
+    archetype: sans_condensed
+    voices: [industrial, authoritative, urgent]
+    roles: [cover_title, warning, label]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: 800, tracking_em: -0.02, line_height: 1.0, effects: []}
+    constraints: {body_text_allowed: false, max_title_chars: 12, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [heavy condensed CJK sans, squared terminals, no distressed texture by default]
+
+  - id: urgent_outline
+    status: draft
+    archetype: display_custom
+    voices: [urgent]
+    roles: [cover_title, warning]
+    locales: [zh-Hant, zh-Hans]
+    treatment: {weight: 900, tracking_em: -0.02, line_height: 0.95, effects: [outer_stroke, hard_shadow]}
+    constraints: {body_text_allowed: false, max_title_chars: 8, min_contrast_ratio: 7.0}
+    font_stack: []
+    prompt_constraints: [heavy intact CJK skeleton, thick contrasting outline, compact hard shadow, no exploded glyphs]
+
+  - id: tech_interface
+    status: draft
+    archetype: sans_grotesk
+    voices: [technical, authoritative]
+    roles: [title, label, caption]
+    locales: [zh-Hant, zh-Hans, ja, en]
+    treatment: {weight: 650, tracking_em: 0.02, line_height: 1.15, effects: [subtle_glow]}
+    constraints: {body_text_allowed: false, max_title_chars: 16, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [geometric technical CJK sans, crisp edges, glow outside glyph not through counters]
+
+  - id: data_mono
+    status: draft
+    archetype: monospaced
+    voices: [technical, neutral]
+    roles: [caption, label]
+    locales: [en]
+    treatment: {weight: 500, tracking_em: 0.0, line_height: 1.25, effects: []}
+    constraints: {body_text_allowed: true, max_title_chars: 24, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [true monospaced Latin and numerals, tabular figures]
+
+  - id: handwritten_note
+    status: draft
+    archetype: handwritten
+    voices: [personal, friendly]
+    roles: [quote, label, title]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: 500, tracking_em: 0.02, line_height: 1.25, effects: []}
+    constraints: {body_text_allowed: false, max_title_chars: 16, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [natural everyday handwriting, consistent baseline, fully legible CJK forms]
+
+  - id: brush_cultural
+    status: draft
+    archetype: calligraphic
+    voices: [cultural, authoritative]
+    roles: [cover_title, title, decorative]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: dynamic, tracking_em: 0.02, line_height: 1.1, effects: [ink_texture]}
+    constraints: {body_text_allowed: false, max_title_chars: 8, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [controlled brush calligraphy, readable standard character structures, restrained dry-brush texture]
+
+  - id: retro_print
+    status: draft
+    archetype: display_custom
+    voices: [cultural, playful]
+    roles: [cover_title, title, decorative]
+    locales: [zh-Hant, zh-Hans]
+    treatment: {weight: 800, tracking_em: 0.01, line_height: 1.0, effects: [ink_bleed, paper_texture]}
+    constraints: {body_text_allowed: false, max_title_chars: 10, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [mid-century Chinese print lettering, limited ink spread, aged paper separate from glyph]
+
+  - id: neon_sign
+    status: draft
+    archetype: display_custom
+    voices: [playful, urgent]
+    roles: [cover_title, decorative]
+    locales: [zh-Hant, zh-Hans]
+    treatment: {weight: 600, tracking_em: 0.03, line_height: 1.05, effects: [tube_outline, glow]}
+    constraints: {body_text_allowed: false, max_title_chars: 8, min_contrast_ratio: 7.0}
+    font_stack: []
+    prompt_constraints: [continuous neon-tube CJK lettering, dark ground, readable inner counters]
+
+  - id: pixel_game
+    status: draft
+    archetype: pixel
+    voices: [playful, technical]
+    roles: [title, label, decorative]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: bitmap, tracking_em: 0.0, line_height: 1.0, effects: [pixel_grid]}
+    constraints: {body_text_allowed: false, max_title_chars: 12, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [consistent pixel grid, no antialiasing simulation, preserve CJK recognizability]
+
+  - id: sports_impact
+    status: draft
+    archetype: sans_condensed
+    voices: [urgent, authoritative]
+    roles: [cover_title, title]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: 900, tracking_em: -0.03, line_height: 0.95, effects: [shear, outer_stroke]}
+    constraints: {body_text_allowed: false, max_title_chars: 8, min_contrast_ratio: 7.0}
+    font_stack: []
+    prompt_constraints: [forward-sheared heavy CJK sans, intact strokes, restrained outline, no speed-line intrusion]
+
+  - id: gothic_fantasy
+    status: draft
+    archetype: blackletter
+    voices: [fantasy]
+    roles: [cover_title, decorative]
+    locales: [en]
+    treatment: {weight: 700, tracking_em: 0.03, line_height: 1.0, effects: []}
+    constraints: {body_text_allowed: false, max_title_chars: 5, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [blackletter reserved for Latin display, pair CJK with a compatible serif rather than fake CJK blackletter]
