@@ -176,3 +176,59 @@ profiles:
     constraints: {body_text_allowed: false, max_title_chars: 5, min_contrast_ratio: 4.5}
     font_stack: []
     prompt_constraints: [blackletter reserved for Latin display, pair CJK with a compatible serif rather than fake CJK blackletter]
+
+  - id: outline_editorial
+    status: draft
+    archetype: display_custom
+    voices: [editorial, premium, technical]
+    roles: [cover_title, title, decorative]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: 400, tracking_em: 0.05, line_height: 1.1, effects: [outline_only]}
+    constraints: {body_text_allowed: false, max_title_chars: 12, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [single-line or hairline-outline CJK construction, generous internal space, no impact shadow, preserve recognizability]
+
+  - id: architectural_display
+    status: draft
+    archetype: serif_ming
+    voices: [authoritative, cultural, technical]
+    roles: [cover_title, title, section_title, label]
+    locales: [zh-Hant, zh-Hans, ja]
+    treatment: {weight: 500, tracking_em: 0.05, line_height: 1.1, effects: [engraved_optional]}
+    constraints: {body_text_allowed: false, max_title_chars: 14, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [architectural CJK display with measured proportions, monumental spacing, engraving separate from glyph skeleton]
+
+  - id: western_woodtype
+    status: draft
+    archetype: display_custom
+    voices: [cultural, playful, authoritative]
+    roles: [cover_title, title, decorative]
+    locales: [zh-Hant, zh-Hans, en]
+    treatment: {weight: 850, tracking_em: 0.0, line_height: 1.0, effects: [woodblock, distress]}
+    constraints: {body_text_allowed: false, max_title_chars: 8, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [heavy slab-like display construction, restrained woodcut distress, do not imitate Latin Tuscan terminals on every CJK stroke]
+
+  - id: seal_script_display
+    status: draft
+    archetype: calligraphic
+    voices: [cultural, premium]
+    roles: [cover_title, title, decorative]
+    locales: [zh-Hant, zh-Hans]
+    treatment: {weight: 500, tracking_em: 0.04, line_height: 1.15, effects: [seal_script_influence]}
+    constraints: {body_text_allowed: false, max_title_chars: 6, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [seal-script-influenced display lettering, historically plausible structure, provide standard-script companion text for readability]
+
+  - id: cjk_fantasy_pairing
+    status: draft
+    archetype: serif_display
+    voices: [fantasy, cultural]
+    roles: [cover_title, title, decorative]
+    locales: [zh-Hant, zh-Hans, ja, en]
+    treatment: {weight: 750, tracking_em: 0.02, line_height: 1.0, effects: [ornamental_frame]}
+    constraints: {body_text_allowed: false, max_title_chars: 8, min_contrast_ratio: 4.5}
+    font_stack: []
+    prompt_constraints: [use a sharp or monumental CJK display serif paired with real Latin blackletter, never fabricate blackletter anatomy inside CJK glyphs, ornament remains outside counters]
+
