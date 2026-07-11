@@ -1,0 +1,6 @@
+version: 1
+mode: "off"
+
+# off: bypass FontDB and preserve the existing renderer path.
+# advisory: run all checks, report would-block, but never block rendering.
+# enforce: return the resolver exit code and block unsafe rendering.
