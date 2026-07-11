@@ -2,6 +2,7 @@ import hashlib
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from fontTools.fontBuilder import FontBuilder
@@ -14,6 +15,7 @@ sys.path.insert(0, str(TOOLS))
 from font_integrity import normalized, verify
 from glyph_preflight import resolve
 from resolve_typography import locale_matches, rank_profile
+from fontdb_entry import disabled_payload, load_mode
 
 
 def make_font(path: Path, family: str, chars: str, weight: int = 400):
@@ -77,6 +79,18 @@ class FontDBTests(unittest.TestCase):
         score, reasons = rank_profile(profile, args)
         self.assertEqual(score, -1)
         self.assertIn("title_too_long:5>4", reasons)
+
+    def test_feature_flag_off_and_environment_override(self):
+        with tempfile.TemporaryDirectory() as raw:
+            config = Path(raw) / "fontdb.config.yaml"
+            config.write_text('mode: "off"\n', encoding="utf-8")
+            with patch.dict("os.environ", {}, clear=True):
+                mode, _ = load_mode(config)
+                self.assertEqual(mode, "off")
+                self.assertTrue(disabled_payload("test")["bypass"])
+            with patch.dict("os.environ", {"FONTDB_MODE": "advisory"}, clear=True):
+                mode, source = load_mode(config)
+                self.assertEqual((mode, source), ("advisory", "environment"))
 
 
 if __name__ == "__main__":
