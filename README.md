@@ -11,11 +11,12 @@ FontDB does **not** treat every visual treatment as a standalone font. It separa
 
 ## Status
 
-`v0.2-draft` — 21 semantic profiles cover the initial 100-sample montage with no forced poor-fit mappings; concrete font families and licenses still require source-by-source verification.
+`v0.3-draft` — 21 semantic profiles cover the initial montage; four profiles now have verified open-font stacks, while the industrial condensed recipe remains provisional pending render tests.
 
 ## Repository map
 
 - `catalog/profiles.yaml` — canonical semantic profiles
+- `catalog/sources.yaml` — verified font sources, releases, licenses, and coverage limits
 - `schema/profile.schema.json` — machine-readable profile schema
 - `docs/TAXONOMY.md` — classification rules
 - `docs/RESOLVER.md` — selection and fallback logic
