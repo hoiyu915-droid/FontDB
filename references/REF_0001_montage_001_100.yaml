@@ -1,0 +1,70 @@
+reference_id: REF_0001
+title: 100-style Chinese typography montage
+status: manually_classified
+source_type: user_supplied_montage
+captured_at: 2026-07-11
+language: zh-Hant
+font_identity_claim: prohibited
+method:
+  - classify visible construction, not the marketing label
+  - separate base profile from surface treatment
+  - mark poor fits instead of forcing a false font identity
+
+items:
+  - {range: "01-04", profile: knowledge_sans, treatment: [none], fit: good}
+  - {range: "05", profile: sports_impact, treatment: [shear], fit: acceptable}
+  - {range: "06", profile: premium_display_serif, treatment: [none], fit: good}
+  - {range: "07", profile: sports_impact, treatment: [shear], fit: acceptable}
+  - {range: "08-16", profile: editorial_ming, treatment: [none], fit: good}
+  - {range: "17-20", profile: urgent_outline, treatment: [outline_only], fit: poor, gap: outline_editorial}
+  - {range: "21-30", profile: handwritten_note, treatment: [natural_variation], fit: good}
+  - {range: "31", profile: brush_cultural, treatment: [curved_baseline, music_marks], fit: acceptable}
+  - {range: "32", profile: handwritten_note, treatment: [curved_baseline], fit: acceptable}
+  - {range: "33-35", profile: handwritten_note, treatment: [outline, doodle], fit: good}
+  - {range: "36", profile: rounded_education, treatment: [doodle], fit: acceptable}
+  - {range: "37-39", profile: editorial_ming, treatment: [expressive_glyph_variation], fit: acceptable}
+  - {range: "40", profile: brush_cultural, treatment: [dry_brush], fit: good}
+  - {range: "41-42", profile: urgent_outline, treatment: [graffiti, rough_edge], fit: acceptable}
+  - {range: "43", profile: rounded_education, treatment: [bubble_outline], fit: good}
+  - {range: "44-48", profile: urgent_outline, treatment: [outer_stroke, impact_shadow, fracture], fit: good}
+  - {range: "49-50", profile: rounded_education, treatment: [irregular_baseline], fit: acceptable}
+  - {range: "51", profile: knowledge_sans, treatment: [none], fit: good}
+  - {range: "52-56", profile: rounded_education, treatment: [playful_variation], fit: good}
+  - {range: "57-60", profile: pixel_game, treatment: [pixel_grid], fit: good}
+  - {range: "61", profile: tech_interface, treatment: [shear], fit: good}
+  - {range: "62", profile: tech_interface, treatment: [liquid_glow], fit: acceptable}
+  - {range: "63", profile: tech_interface, treatment: [wide_geometric], fit: acceptable}
+  - {range: "64", profile: tech_interface, treatment: [glitch, fracture], fit: good}
+  - {range: "65-68", profile: industrial_condensed, treatment: [stencil_or_cut, metal_texture], fit: good}
+  - {range: "69-72", profile: sports_impact, treatment: [outer_stroke, shear], fit: good}
+  - {range: "73-76", profile: industrial_condensed, treatment: [engraved_or_constructed], fit: acceptable, gap: architectural_display}
+  - {range: "77-80", profile: retro_print, treatment: [ink_bleed, neon_outline], fit: good}
+  - {range: "81-84", profile: retro_print, treatment: [western_woodtype, distress], fit: acceptable, gap: western_woodtype}
+  - {range: "85-86", profile: neon_sign, treatment: [tube_outline, glow], fit: good}
+  - {range: "87", profile: handwritten_note, treatment: [marker_highlight], fit: good}
+  - {range: "88", profile: urgent_outline, treatment: [shear, hard_shadow], fit: good}
+  - {range: "89-92", profile: brush_cultural, treatment: [ink_texture], fit: good}
+  - {range: "93", profile: premium_display_serif, treatment: [high_contrast], fit: good}
+  - {range: "94", profile: editorial_ming, treatment: [plaque_frame], fit: acceptable}
+  - {range: "95", profile: brush_cultural, treatment: [seal_script_influence], fit: poor, gap: seal_script_display}
+  - {range: "96", profile: brush_cultural, treatment: [woodblock_print], fit: acceptable}
+  - {range: "97-98", profile: gothic_fantasy, treatment: [medieval_frame], fit: poor, gap: cjk_fantasy_pairing}
+  - {range: "99", profile: brush_cultural, treatment: [sharp_brush, metallic], fit: acceptable}
+  - {range: "100", profile: gothic_fantasy, treatment: [ornamental_frame], fit: poor, gap: cjk_fantasy_pairing}
+
+coverage_summary:
+  total_samples: 100
+  production_font_identity_verified: 0
+  profile_fit:
+    good: 64
+    acceptable: 26
+    poor: 10
+  uncovered_semantic_gaps:
+    - outline_editorial
+    - architectural_display
+    - western_woodtype
+    - seal_script_display
+    - cjk_fantasy_pairing
+  notes:
+    - counts are visual classification estimates, not font identification
+    - poor fit is intentionally retained as evidence for taxonomy revision
