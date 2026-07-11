@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FontDB typography profile",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "archetype",
+    "voices",
+    "roles",
+    "locales",
+    "treatment",
+    "constraints",
+    "font_stack"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "verified",
+        "tested",
+        "deprecated"
+      ]
+    },
+    "archetype": {
+      "enum": [
+        "sans_grotesk",
+        "sans_humanist",
+        "sans_condensed",
+        "serif_ming",
+        "serif_display",
+        "rounded",
+        "monospaced",
+        "handwritten",
+        "calligraphic",
+        "pixel",
+        "blackletter",
+        "display_custom"
+      ]
+    },
+    "voices": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "body",
+          "caption",
+          "title",
+          "cover_title",
+          "section_title",
+          "warning",
+          "label",
+          "quote",
+          "decorative"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "locales": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "treatment": {
+      "type": "object",
+      "required": [
+        "effects"
+      ],
+      "properties": {
+        "effects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weight": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "tracking_em": {
+          "type": "number"
+        },
+        "line_height": {
+          "type": "number"
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "required": [
+        "body_text_allowed"
+      ],
+      "properties": {
+        "body_text_allowed": {
+          "type": "boolean"
+        },
+        "max_title_chars": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "min_contrast_ratio": {
+          "type": "number"
+        }
+      }
+    },
+    "font_stack": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "family",
+          "confidence"
+        ],
+        "properties": {
+          "family": {
+            "type": "string"
+          },
+          "confidence": {
+            "enum": [
+              "reference_only",
+              "identified",
+              "verified",
+              "tested"
+            ]
+          },
+          "source_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "license": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "coverage": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "seed_compatibility": {
+      "type": "object",
+      "properties": {
+        "preferred": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "avoid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "prompt_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
