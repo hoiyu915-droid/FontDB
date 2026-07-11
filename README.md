@@ -23,6 +23,7 @@ FontDB does **not** treat every visual treatment as a standalone font. It separa
 - `docs/SOURCE_POLICY.md` — evidence, licensing, and reference-image policy
 - `references/README.md` — how to register visual references without pretending they are fonts
 - `tools/glyph_preflight.py` — executable ordered-stack Unicode coverage resolver
+- `tools/resolve_typography.py` — semantic profile selection plus glyph-safe render-run compiler
 - `tests/` — deterministic render and glyph stress-test records
 
 ## Core rule
@@ -44,3 +45,14 @@ FontDB is designed to sit beside Seed Resolver:
 - `verified`: real fonts, source, license, and CJK coverage checked.
 - `tested`: verified and passed layout stress tests.
 - `deprecated`: retained only for backward compatibility.
+
+## Minimal resolver call
+
+```bash
+python tools/resolve_typography.py \
+  --catalog catalog/profiles.yaml \
+  --text '親子課程：臺語𩵚也要正確顯示' \
+  --locale zh-Hant --role title --voice friendly \
+  --bind 'jf open 粉圓=/path/jf-openhuninn-2.1.ttf' \
+  --fallback 'NotoSansTC=/path/NotoSansTC.ttf'
+```
