@@ -27,6 +27,20 @@ FontDB does **not** treat every visual treatment as a standalone font. It separa
 - `tools/font_integrity.py` — name-table, SHA-256, and OS/2 weight verification
 - `tests/` — deterministic render and glyph stress-test records
 
+
+## Canonical card-generation lock
+
+All generated TA/TP image-card JSON must load `catalog/card_generation_lock.json`.
+The active lock is `FONTDB_CARD_ZH_HANT_KNOWLEDGE_SANS_V1`:
+
+- Traditional Chinese, English, and numerals all use `Source Han Sans TC`;
+- title and section weight `700`, body `600`, label `700`, caption `500`;
+- profile switching, font substitution, handwritten/display faces, and mixed-family rendering are forbidden;
+- a missing, partial, or conflicting lock blocks queue sealing or image dispatch.
+
+This lock is intentionally stricter than normal FontDB semantic selection. It
+prioritizes cross-card stability for generated medical and evidence cards.
+
 ## Core rule
 
 A generated-looking label such as “liquid future font” or “explosive headline font” is a **style reference**, not a verified font identity. A profile becomes production-ready only after its real font stack, CJK coverage, source URL, and license are verified.
