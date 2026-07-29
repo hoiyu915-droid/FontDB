@@ -1,0 +1,32 @@
+{
+  "artifact_type": "card_generation_typography_lock",
+  "schema_version": "1.0",
+  "lock_id": "FONTDB_CARD_ZH_HANT_KNOWLEDGE_SANS_V1",
+  "status": "canonical",
+  "profile_id": "knowledge_sans",
+  "locale": "zh-Hant-TW",
+  "script_families": {
+    "zh_hant": "Source Han Sans TC",
+    "latin": "Source Han Sans TC",
+    "numerals": "Source Han Sans TC"
+  },
+  "role_weights": {
+    "title": 700,
+    "section_title": 700,
+    "body": 600,
+    "label": 700,
+    "caption": 500
+  },
+  "font_family_substitution_allowed": false,
+  "profile_switch_between_cards_allowed": false,
+  "handwritten_or_display_font_allowed": false,
+  "mixed_family_inside_card_allowed": false,
+  "prompt_constraints_zh_hant": [
+    "全卡中文、英文、數字一律使用 Source Han Sans TC（思源黑體台灣繁體字形）",
+    "標題與小標使用 700，正文使用 600，標籤使用 700，註腳使用 500",
+    "同一卡組不得更換字族、改用手寫體、明體、圓體或裝飾字體",
+    "若無法維持指定字型家族與字重，必須阻擋，不得自行替換"
+  ],
+  "renderer_scope": "image_generation_and_deterministic_overlay",
+  "machine_fields_are_not_visible_copy": true
+}
