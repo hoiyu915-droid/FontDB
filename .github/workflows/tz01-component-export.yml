@@ -1,0 +1,59 @@
+name: TZ01 component export
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [tz01-export-runner-20260730]
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pinned component commit
+        uses: actions/checkout@v4
+        with:
+          ref: 6abab26b5b3af7c2a7af5601b3807ad0718701e9
+          path: source
+          fetch-depth: 1
+      - name: Build metadata-only component snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, shutil
+          from pathlib import Path
+          component='FontDB'; repository='hoiyu915-droid/FontDB'; commit='6abab26b5b3af7c2a7af5601b3807ad0718701e9'
+          source=Path('source'); root=Path('export')/component; root.mkdir(parents=True,exist_ok=True)
+          excluded_dirs={'.git','.github','.venv','venv','node_modules','__pycache__','.pytest_cache','.mypy_cache','.ruff_cache','dist','build','coverage','.coverage'}
+          excluded_suffixes={'.png','.jpg','.jpeg','.webp','.gif','.bmp','.tif','.tiff','.pdf','.zip','.gz','.tgz','.tar','.7z','.rar','.mp3','.wav','.mp4','.mov','.avi','.mkv','.ttf','.otf','.woff','.woff2','.pyc','.pyo','.db','.sqlite','.sqlite3','.pkl','.pickle','.npy','.npz','.parquet','.arrow','.xlsx','.xls','.docx','.pptx'}
+          allowed_suffixes={'.py','.json','.yaml','.yml','.md','.txt','.toml','.cfg','.ini','.sh','.schema','.csv','.tsv','.html','.css','.js','.rst','.lock','.j2','.jinja','.jinja2'}
+          invalid=set('<>:"|?*'); copied=[]; skipped=[]
+          for path in sorted(p for p in source.rglob('*') if p.is_file()):
+              rel=path.relative_to(source)
+              if any(part in excluded_dirs for part in rel.parts): continue
+              if any(any(c in invalid for c in part) for part in rel.parts): skipped.append(rel.as_posix()); continue
+              suffix=path.suffix.lower()
+              if suffix in excluded_suffixes or path.stat().st_size>5_000_000: continue
+              include=suffix in allowed_suffixes
+              if not include and suffix=='':
+                  try: path.read_text(encoding='utf-8'); include=True
+                  except (UnicodeDecodeError,OSError): include=False
+              if not include: continue
+              target=root/rel; target.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(path,target); copied.append(target)
+          files=[]
+          for path in sorted(copied):
+              data=path.read_bytes(); files.append({'path':path.relative_to(root).as_posix(),'size':len(data),'sha256':hashlib.sha256(data).hexdigest(),'git_blob_sha1':hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()})
+          (root/'.tz01_component_export.json').write_text(json.dumps({'component':component,'repository':repository,'commit':commit,'selection':'metadata_and_typography_rules_only','skipped_nonportable_paths':skipped,'files':files},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Upload component artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tz01-component-FontDB
+          path: export
+          if-no-files-found: error
+          compression-level: 9
+          retention-days: 1
+          include-hidden-files: true
