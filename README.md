@@ -72,3 +72,33 @@ python tools/resolve_typography.py \
   --bind 'jf open 粉圓=/path/jf-openhuninn-2.1.ttf' \
   --fallback 'NotoSansTC=/path/NotoSansTC.ttf'
 ```
+
+## Why FontDB matters
+
+Multilingual generation systems often confuse visual treatments with real font identities and fail silently when a font lacks required CJK glyphs. FontDB makes typography selection machine-readable, verifies font provenance and coverage, and provides deterministic, fail-closed inputs for downstream renderers.
+
+FontDB is actively maintained by the repository owner. Maintenance includes issue triage, pull-request review, catalog and schema changes, regression checks, and downstream integration work.
+
+## Maintainer workflow and Codex
+
+Codex may assist with repository inspection, pull-request preparation, contract validation, regression repair, documentation, and release integration. Maintainers review all changes and retain responsibility for correctness, provenance, licensing, and merge decisions.
+
+## Contributing and security
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for contribution and validation expectations. Report vulnerabilities through the private process in [`SECURITY.md`](SECURITY.md).
+
+## Adoption and impact
+
+FontDB is intended for Chinese-first and multilingual rendering pipelines that need auditable font selection, glyph coverage, and licensing metadata. No unverified download, deployment, or adoption figures are claimed. Users may document integrations through an issue or pull request so public impact can be measured.
+
+## License
+
+Code, tools, tests, schemas, and executable configuration are licensed under Apache-2.0. Documentation and semantic catalog content are licensed under CC BY 4.0. See [`LICENSE`](LICENSE), [`LICENSE-ASSETS.md`](LICENSE-ASSETS.md), and [`NOTICE.md`](NOTICE.md) for boundaries and third-party exclusions.
+
+## Roadmap
+
+See [`ROADMAP.md`](ROADMAP.md) for current priorities and proposed stabilization work.
+
+## Citation
+
+Use [`CITATION.cff`](CITATION.cff) and cite the exact commit or release used.

@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use FontDB, please cite the repository and the exact commit or release."
+title: "FontDB"
+type: software
+authors:
+  - name: "hoiyu915-droid"
+repository-code: "https://github.com/hoiyu915-droid/FontDB"
+license: Apache-2.0
