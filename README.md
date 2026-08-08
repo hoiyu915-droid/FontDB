@@ -95,6 +95,10 @@ FontDB is intended for Chinese-first and multilingual rendering pipelines that n
 
 Code, tools, tests, schemas, and executable configuration are licensed under Apache-2.0. Documentation and semantic catalog content are licensed under CC BY 4.0. See [`LICENSE`](LICENSE), [`LICENSE-ASSETS.md`](LICENSE-ASSETS.md), and [`NOTICE.md`](NOTICE.md) for boundaries and third-party exclusions.
 
+## Roadmap
+
+See [`ROADMAP.md`](ROADMAP.md) for current priorities and proposed stabilization work.
+
 ## Citation
 
 Use [`CITATION.cff`](CITATION.cff) and cite the exact commit or release used.
